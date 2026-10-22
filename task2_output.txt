@@ -1,0 +1,17 @@
+C:\Users\Asus\Desktop\CSS314\.venv\Scripts\python.exe C:\Users\Asus\Desktop\CSS314\task2.py
+Student ID    : 230103122
+OS            : Windows 10
+CPU / Platform: AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD
+Logical cores : 16
+Array size    : 20000000 (float64), seed = 230103122
+Runs / count  : 5 (mean, after 1 warm-up) | Amdahl P = 0.95
+
+ Cores |  Wall Time (ms) |   Speedup |  Amdahl Upper Bound
+----------------------------------------------------------
+     1 |          32.508 |     1.00x |               1.00x
+     2 |          19.624 |     1.66x |               1.90x
+     4 |          17.283 |     1.88x |               3.48x
+    16 |          13.430 |     2.42x |               9.14x
+    32 |          13.449 |     2.42x |              12.55x
+
+Process finished with exit code 0
