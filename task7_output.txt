@@ -1,0 +1,28 @@
+C:\Users\Asus\Desktop\CSS314\.venv\Scripts\python.exe C:\Users\Asus\Desktop\CSS314\task7.py
+Student ID    : 230103122
+OS            : Windows 10
+CPU / Platform: AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD
+Logical cores : 16 (tested: [1, 2, 16])
+Array size    : N = 30,000,000 float64 (240 MB per array), best of 5 runs
+
+Kernel A (memory-bound): B[i] = A[i]
+ Cores |  Time (ms) |  Speedup | Efficiency |  Mem traffic (GB/s)
+-----------------------------------------------------------------
+     1 |      79.55 |    1.00x |     100.0% |                6.03
+     2 |      79.65 |    1.00x |      49.9% |                6.03
+    16 |      81.66 |    0.97x |       6.1% |                5.88
+
+Kernel B (compute-bound): B[i] = sin(A[i])*cos(A[i]) + tan(A[i])
+ Cores |  Time (ms) |  Speedup | Efficiency |  Mem traffic (GB/s)
+-----------------------------------------------------------------
+     1 |     497.89 |    1.00x |     100.0% |                0.96
+     2 |     251.74 |    1.98x |      98.9% |                1.91
+    16 |      81.53 |    6.11x |      38.2% |                5.89
+
+=== VERDICT ===
+At 16 cores: Kernel A efficiency = 6.1% (speedup 0.97x), Kernel B efficiency = 38.2% (speedup 6.11x)
+Kernel A memory traffic peaked at 6.03 GB/s (Kernel B only 5.89 GB/s).
+RESULT: Kernel A (vector copy) STALLED in scaling due to memory channel saturation: extra cores only wait on the RAM bus.
+        Kernel B scaled better, but its efficiency is also reduced because logical cores beyond the physical count share execution units (SMT).
+
+Process finished with exit code 0
