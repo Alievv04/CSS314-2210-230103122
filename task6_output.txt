@@ -1,0 +1,32 @@
+C:\Users\Asus\Desktop\CSS314\.venv\Scripts\python.exe C:\Users\Asus\Desktop\CSS314\task6.py
+Student ID    : 230103122
+OS            : Windows 10
+CPU / Platform: AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD
+Logical cores : 16
+Threads       : 4 x 2,000,000 increments | expected = 8,000,000
+
+=== PART 1: hardware race (Numba threads, real parallelism) ===
+Unsynchronized counter[0] += 1
+ Run |   Expected |     Actual |       Lost |   Lost % |  Time (ms)
+------------------------------------------------------------------
+   1 |  8,000,000 |  2,127,991 |  5,872,009 |   73.40% |      22.71
+   2 |  8,000,000 |  2,529,066 |  5,470,934 |   68.39% |      27.90
+   3 |  8,000,000 |  2,016,513 |  5,983,487 |   74.79% |      24.18
+
+Atomic add (hardware LOCK XADD)
+ Run |   Expected |     Actual |       Lost |   Lost % |  Time (ms)
+------------------------------------------------------------------
+   1 |  8,000,000 |  8,000,000 |          0 |    0.00% |      73.96
+   2 |  8,000,000 |  8,000,000 |          0 |    0.00% |      86.22
+   3 |  8,000,000 |  8,000,000 |          0 |    0.00% |      77.33
+
+Mean time unsynchronized : 24.93 ms
+Mean time atomic         : 79.17 ms
+Synchronization penalty  : +54.24 ms (3.18x slower)
+
+=== PART 2: Python Mutex (threading.Lock) ===
+No lock   : expected 8,000,000 | actual 8,000,000 | lost 0 (0.00%) | 434.53 ms
+With Lock : expected 8,000,000 | actual 8,000,000 | lost 0 (0.00%) | 1970.69 ms
+Lock penalty            : +1536.16 ms (4.54x slower)
+
+Process finished with exit code 0
