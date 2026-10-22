@@ -1,0 +1,26 @@
+C:\Users\Asus\Desktop\CSS314\.venv\Scripts\python.exe C:\Users\Asus\Desktop\CSS314\task4.py
+Student ID    : 230103122
+OS            : Windows 10
+CPU / Platform: AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD
+Logical cores : 16
+Items         : 1000 | Workers: 4 | mean of 3 runs after warm-up
+Calibration   : 1.07 ns per spin iteration
+
+Scenario 1 (task spec): cost(i) = 0.0001 * (i % 20) s
+Total work = 950.0 ms | ideal time on 4 workers = 237.5 ms
+Strategy                   | Total (ms) | First done (ms) | Last done (ms) | Delta (ms)
+---------------------------------------------------------------------------------------
+A: Static (blocks of 250)  |     235.52 |          224.12 |         235.45 |      11.33
+B1: Dynamic, chunk = 1     |     219.70 |          218.33 |         219.66 |       1.33
+B2: Dynamic, chunk = 5     |     227.53 |          219.72 |         227.42 |       7.70
+
+Scenario 2 (extra, ramp skew): cost(i) = 0.0001 * (i // 50) s
+Total work = 950.0 ms | ideal time on 4 workers = 237.5 ms
+Strategy                   | Total (ms) | First done (ms) | Last done (ms) | Delta (ms)
+---------------------------------------------------------------------------------------
+A: Static (blocks of 250)  |     388.77 |           48.28 |         388.71 |     340.43
+B1: Dynamic, chunk = 1     |     225.83 |          224.09 |         225.77 |       1.68
+B2: Dynamic, chunk = 5     |     220.14 |          214.26 |         220.05 |       5.80
+
+
+Process finished with exit code 0
