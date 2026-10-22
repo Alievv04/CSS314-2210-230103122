@@ -1,0 +1,11 @@
+C:\Users\Asus\Desktop\CSS314\.venv\Scripts\python.exe C:\Users\Asus\Desktop\CSS314\task1.py
+Student ID    : 230103122
+OS            : Windows 10 (10.0.26200)
+CPU / Platform: AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD
+Logical cores : 16
+Array size    : 20000000 (float64)
+Sum           : 9998468.345495
+Std deviation : 0.2886960664
+Execution time: 359.441 ms
+
+Process finished with exit code 0
