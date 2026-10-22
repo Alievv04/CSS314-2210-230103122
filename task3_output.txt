@@ -1,0 +1,19 @@
+C:\Users\Asus\Desktop\CSS314\.venv\Scripts\python.exe C:\Users\Asus\Desktop\CSS314\task3.py
+Student ID    : 230103122
+OS            : Windows 10
+CPU / Platform: AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD
+Logical cores : 16
+Worker threads: 8 (physical core count)
+Increments    : 50,000,000 per thread | mean of 3 runs after warm-up
+Cache line    : 64 bytes (int64 counters, padding = 8 elements)
+
+Variant                          | Wall Time (s) |  Ratio vs Unpadded
+----------------------------------------------------------------------
+Unpadded shared (false sharing)  |        1.1936 |              1.00x
+Padded shared (64-byte pad)      |        0.0977 |             12.22x
+Local variable                   |        0.0383 |             31.13x
+
+Execution ratio Unpadded / Padded = 12.22x
+Execution ratio Unpadded / Local  = 31.13x
+
+Process finished with exit code 0
